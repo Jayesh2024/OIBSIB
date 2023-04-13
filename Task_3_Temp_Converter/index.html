@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temparature Converter Website</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <main>
+        <header>
+            <h1>Temperature Converter(fahrenheit, celcius)</h1>
+        </header>
+        <section width="50000px" class="inputs">
+            <input  type="number" name="celcius" id="celcius" class="input" placeholder="Celcius">
+            <hr>
+            <input type="number" name="fahrenheit" id="fahrenheit" class="input" placeholder="Fahrenheit">
+        </section>
+    </main>
+    
+    <script>
+        const celciusInput = document.getElementById("celcius");
+        const fahrenheitInput = document.getElementById("fahrenheit");
+
+        const inputs = document.getElementsByClassName("input");
+
+        for (let i = 0; i < inputs.length; i++) {
+            let input = inputs[i];
+
+            input.addEventListener("input", function (e) {
+                let value = parseFloat(e.target.value);
+                
+                switch (e.target.name) {
+                    case "celcius":
+                        fahrenheitInput.value = (value * 1.8) + 32;    
+                        break;
+                        
+                    case "fahrenheit":
+                        celciusInput.value = (value - 32) / 1.8;
+                        break;            
+                }
+            });
+        }
+    </script>
+</body>
+</html>
